@@ -31,7 +31,7 @@ class LaravelImageHandlerServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // $this->mergeConfigFrom(__DIR__.'/../config/notification.php', 'notification');
+        // $this->mergeConfigFrom(__DIR__.'/../config/image.php', 'image');
 
         // Register the service the package provides.
         $this->app->singleton('laravel-image-handler', function ($app) {
@@ -76,7 +76,7 @@ class LaravelImageHandlerServiceProvider extends ServiceProvider
             __DIR__.'/../resources/lang' => resource_path('lang/vendor/bagoesz21'),
         ], 'laravel-image-handler.views');*/
         $this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-image'),
+            __DIR__.'/../resources/lang' => $this->app->langPath('vendor/laravel-image'),
         ], 'laravel-image.lang');
 
         // Registering package commands.
